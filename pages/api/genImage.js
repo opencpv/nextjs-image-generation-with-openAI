@@ -2,11 +2,14 @@
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
+  organization: "org-nOLmsqIjJWNlJLFZ0UlR1ycZ",
+
   apiKey: process.env.NEXT_PUBLIC_OPENAI_APIKEY,
 });
 export default function handler(req, res) {
   if (req.method === "POST") {
     // Process a POST request
+    console.log(process.env.NEXT_PUBLIC_OPENAI_APIKEY)
     const promt = req.body.prompt;
     console.log(req.body);
     const openai = new OpenAIApi(configuration);
